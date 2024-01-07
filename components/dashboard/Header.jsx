@@ -11,7 +11,7 @@ import SearchInput from './SearchInput';
 import Image from 'next/image';
 const Header = () => {
   return (
-    <nav className='bg-slate-100 h-14 flex items-center justify-between px-5 border-b border-slate-300 shadow-sm fixed top-0 ps-56 z-40 w-full'>
+    <nav className='bg-slate-100 h-14 flex items-center justify-between px-5 border-b border-slate-300 shadow-sm fixed top-0 ps-64 z-40 w-full'>
       <div className='flex gap-5'>
         {/* Recent activities */}
         <button>
