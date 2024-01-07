@@ -1,4 +1,5 @@
-import Header from "@/components/dashboard/Header";
+import Header from '@/components/dashboard/Header';
+import Sidebar from '@/components/dashboard/Sidebar';
 
 export const metadata = {
   title: 'Inventory Dashboard',
@@ -8,10 +9,9 @@ export const metadata = {
 export default function Layout({ children }) {
   return (
     <div className={'flex'}>
-      <aside className='w-56 min-h-screen bg-sky-900 text-slate-50'>Sidebar</aside>
-      <main className="w-full bg-slate-100 min-h-screen">
-        <Header />
-        {children}</main>
+      <Sidebar />
+      <Header />
+      <main className='w-full bg-slate-100 min-h-screen'>{children}</main>
     </div>
   );
 }
