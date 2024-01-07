@@ -1,7 +1,11 @@
+'use client'
+import { useRouter } from "next/navigation"
+
 const DashboardPage = () => {
-  return (
-    <div>Back office home</div>
-  )
+  const router = useRouter()
+
+  router.push('/app/home/inventory-dashboard');
+  
 }
 
 export default DashboardPage

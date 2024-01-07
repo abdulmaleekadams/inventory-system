@@ -8,7 +8,7 @@ const NavLink = ({ icon, title, url }) => {
     <Link
       href={`/app/${url}`}
       className={`flex gap-2 items-center hover:bg-blue-500 p-2 rounded-lg ${
-        path.includes(`/app/${url}`) ? 'bg-blue-500' : ''
+        path.includes(url.split('/').pop()) ? 'bg-blue-500' : ''
       }`}
     >
       {icon}

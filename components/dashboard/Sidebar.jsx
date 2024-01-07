@@ -17,7 +17,7 @@ const navLinks = [
   {
     icon: <Home className='w-5 h-5' />,
     title: 'Home',
-    url: 'home/overview',
+    url: 'home',
   },
   {
     icon: <BaggageClaim className='w-5 h-5' />,
