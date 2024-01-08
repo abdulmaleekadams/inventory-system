@@ -10,7 +10,7 @@ export default function Layout({ children }) {
   return (
     <>
       <div>
-        <div className='flex gap-4 items-center mb-7'>
+        <div className='flex gap-4 items-center mb-7 px-5'>
           <Building2 className='text-slate-400' />
           <h1 className='flex flex-col font-bold text-slate-900'>
             Hello, ADAMS ABDULMALEEK <span className='text-sm font-semibold text-slate-400'>Kulture Heiish</span>

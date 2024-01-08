@@ -22,7 +22,7 @@ const navItems = [
 
 const Navbar = () => {
   return (
-    <div className='sticky top-16 flex gap-5'>
+    <div className='sticky top-16 flex gap-5 px-4'>
           {
               navItems.map(({ title, url }) => (
                   <NavLink title={title} url={url} key={url} />
