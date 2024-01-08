@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import {
   ShoppingCart,
   ChevronLeft,
@@ -12,6 +11,7 @@ import {
 } from 'lucide-react';
 import NavLink from './NavLink';
 import SubscriptionCard from './SubscriptionCard';
+import SidebarDropdown from './SidebarDropdown';
 
 const navLinks = [
   {
@@ -20,16 +20,68 @@ const navLinks = [
     url: 'home',
   },
   {
-    icon: <BaggageClaim className='w-5 h-5' />,
+    icon: <BaggageClaim className='w-5 h-5 ' />,
     title: 'Inventory',
     url: 'inventory',
     isDropdown: true,
+    dropdownList: [
+      {
+        title: 'Items',
+        url: 'items',
+      },
+      {
+        title: 'Item Groups',
+        url: 'itemgroups',
+      },
+      {
+        title: 'Inventory Adjustments',
+        url: 'adjustments',
+      },
+    ],
   },
   {
     icon: <ShoppingBag className='w-5 h-5' />,
     title: 'Sales',
     url: 'sales',
     isDropdown: true,
+    dropdownList: [
+      {
+        title: 'Customers',
+        url: '#',
+      },
+      {
+        title: 'Sales Orders',
+        url: '#',
+      },
+      {
+        title: 'Packages',
+        url: '#',
+      },
+      {
+        title: 'Shipments',
+        url: '#',
+      },
+      {
+        title: 'Invoices',
+        url: '#',
+      },
+      {
+        title: 'Sales Recipts',
+        url: '#',
+      },
+      {
+        title: 'Payments Received',
+        url: '#',
+      },
+      {
+        title: 'Sales Returns',
+        url: '#',
+      },
+      {
+        title: 'Credit Notes',
+        url: '#',
+      },
+    ],
   },
   {
     icon: <ShoppingBasket className='w-5 h-5' />,
@@ -55,7 +107,7 @@ const navLinks = [
 ];
 const Sidebar = () => {
   return (
-    <aside className='w-60 min-h-screen bg-slate-900 text-slate-50 z-50 flex flex-col justify-between fixed left-0 top-0'>
+    <aside className='w-60 min-h-screen  bg-slate-900 text-slate-50 z-50 flex flex-col justify-between fixed left-0 top-0'>
       {/* Top Part */}
 
       <div className='flex flex-col gap-8'>
@@ -69,12 +121,13 @@ const Sidebar = () => {
         <nav className='flex flex-col gap-4 px-2'>
           {navLinks.map((navItem, idx) =>
             navItem.isDropdown ? (
-              <div className=' relative  ' key={`navItem${idx} `}>
-                <button className='flex gap-2 items-center w-full hover:bg-slate-950 p-2 rounded-lg '>
-                  {navItem.icon}
-                  <p>{navItem.title}</p>
-                </button>
-              </div>
+              <SidebarDropdown
+                key={`navItem${idx}`}
+                icon={navItem.icon}
+                title={navItem.title}
+                dropdownList={navItem.dropdownList}
+                menuTitle={navItem.url}
+              />
             ) : (
               <NavLink
                 icon={navItem.icon}
