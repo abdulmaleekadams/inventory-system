@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 export const POST = async (request) => {
   try {
-    const { title, abbreviation } = await request.json();
+    const { title, location, type, description } = await request.json();
 
-    const data = { title, abbreviation };
+    const data = { title, location, type, description };
 
     console.log(data);
 
