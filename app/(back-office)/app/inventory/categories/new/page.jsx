@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import SubmitButton from '@/components/inventory/FormInputs/SubmitButton';
 import TextareaInput from '@/components/inventory/FormInputs/TextareaInput';
+import { addNewData } from '@/app/lib/addNewData';
 
 const NewCategoryPage = () => {
   const {
@@ -17,26 +18,7 @@ const NewCategoryPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data) => {
-    const baseURL = 'http://localhost:3000/api';
-    try {
-      setIsSubmitting(true);
-      const response = await fetch(`${baseURL}/categories`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      if (response.ok) {
-        const dataFromResponse = await response.json()
-        console.log(dataFromResponse);
-        setIsSubmitting(false);
-        reset();
-      }
-    } catch (error) {
-      setIsSubmitting(false);
-      console.log(error);
-    } finally {
-      setIsSubmitting(false);
-    }
+    await addNewData('categories', setIsSubmitting, reset, data);
   };
 
   return (
@@ -58,6 +40,7 @@ const NewCategoryPage = () => {
             errors={errors}
             containerClassName='sm:col-span-2'
             errorMessage={'Category Title is required'}
+            placeholder={'Type the Category title'}
           />
           <TextareaInput
             containerClassName={'sm:col-span-2'}
