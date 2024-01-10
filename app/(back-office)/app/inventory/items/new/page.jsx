@@ -1,5 +1,12 @@
 const NewItemPage = () => {
-  return <div>New Item Page</div>;
+    return <div>New Item Page
+      
+        {/* Header */}
+
+        {/* Form */}
+
+        {/* Footer */}
+  </div>;
 };
 
 export default NewItemPage;

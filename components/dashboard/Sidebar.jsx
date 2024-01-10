@@ -27,11 +27,23 @@ const navLinks = [
     dropdownList: [
       {
         title: 'Items',
-        url: 'items',
+        url: 'items/new',
       },
       {
         title: 'Item Groups',
-        url: 'itemgroups',
+        url: 'categories/new',
+      },
+      {
+        title: 'Brands',
+        url: 'brands/new',
+      },
+      {
+        title: 'Units',
+        url: 'units/new',
+      },
+      {
+        title: 'Warehouse',
+        url: 'warehouse/new',
       },
       {
         title: 'Inventory Adjustments',

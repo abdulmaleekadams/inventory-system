@@ -40,7 +40,7 @@ const SidebarDropdown = ({ icon, title, dropdownList, menuTitle }) => {
           <Link
             href={`/app/${menuTitle}/${item.url}`}
             className={`flex gap-2 items-center p-2 pl-8 py-3 rounded-lg text-sm group ${
-              path.includes(item.url?.split('/').pop())
+              path.includes(item.url)
                 ? 'bg-blue-500 *:!opacity-100'
                 : ''
             }`}
