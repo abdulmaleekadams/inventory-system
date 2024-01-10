@@ -6,6 +6,7 @@ import { useState } from 'react';
 import SubmitButton from '@/components/inventory/FormInputs/SubmitButton';
 import TextareaInput from '@/components/inventory/FormInputs/TextareaInput';
 import { addNewData } from '@/app/lib/addNewData';
+import RadioInput from '@/components/inventory/FormInputs/RadioInput';
 
 const NewWarehousePage = () => {
   const {
@@ -50,15 +51,19 @@ const NewWarehousePage = () => {
             containerClassName='sm:col-span-1'
             errorMessage={'Warehouse Location is required'}
             placeholder={'Type the Warehouse location'}
+            type='address'
           />
-          <TextInput
-            register={register}
-            label={'Warehouse Type'}
+          <RadioInput
             name={'type'}
+            options={[
+              { label: 'Main', value: 'main' },
+              { label: 'Branch', value: 'branch' },
+            ]}
+            register={register}
             errors={errors}
-            containerClassName='sm:col-span-1'
-            errorMessage={'Warehouse Type is required'}
-            placeholder={'Type the Warehouse type'}
+            errorMessage={'Warehouse Type should be selected'}
+            title={'Warehouse Type'}
+            containerClassName={'sm:col-span-1'}
           />
           <TextareaInput
             containerClassName={'sm:col-span-2'}
@@ -71,7 +76,10 @@ const NewWarehousePage = () => {
           />
 
           <div className='md:col-span-2'>
-            <SubmitButton isSubmitting={isSubmitting} label={'Save Warehouse'} />
+            <SubmitButton
+              isSubmitting={isSubmitting}
+              label={'Save Warehouse'}
+            />
           </div>
         </div>
       </form>

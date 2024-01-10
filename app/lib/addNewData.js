@@ -1,5 +1,6 @@
 const baseURL = 'http://localhost:3000/api';
 export const addNewData = async (apiPath, setIsSubmitting, reset, data) => {
+  console.log(data);
   try {
     setIsSubmitting(true);
     const response = await fetch(`${baseURL}/${apiPath}`, {
