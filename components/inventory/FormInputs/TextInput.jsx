@@ -7,6 +7,7 @@ const TextInput = ({
   containerClassName = 'w-full',
   register,
   errors,
+  errorMessage,
   ...rest
 }) => {
   return (
@@ -28,7 +29,7 @@ const TextInput = ({
         {...rest}
       />
       {errors[name] && (
-        <span className='text-sm text-red-600'>Category is required</span>
+        <span className='text-sm text-red-600'>{errorMessage}</span>
       )}
     </div>
   );

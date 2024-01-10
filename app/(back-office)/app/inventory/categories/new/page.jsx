@@ -4,6 +4,7 @@ import TextInput from '@/components/inventory/FormInputs/TextInput';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import SubmitButton from '@/components/inventory/FormInputs/SubmitButton';
+import TextareaInput from '@/components/inventory/FormInputs/TextareaInput';
 
 const NewCategoryPage = () => {
   const {
@@ -30,7 +31,7 @@ const NewCategoryPage = () => {
   return (
     <div>
       {/* Header */}
-      <FormHeader title={'New Category'} url={'#'} />
+      <FormHeader title={'New Category'} url={'/app/inventory/items'} />
 
       {/* Form */}
       <form
@@ -44,22 +45,18 @@ const NewCategoryPage = () => {
             label={'Category Title'}
             name={'category'}
             errors={errors}
+            containerClassName='sm:col-span-2'
+            errorMessage={'Category Title is required'}
           />
-          <div className='w-full'>
-            <label
-              htmlFor='brand'
-              className='block mb-2 text-sm font-medium text-gray-900'
-            >
-              Brand
-            </label>
-            <input
-              type='text'
-              name='brand'
-              id='brand'
-              className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 '
-              placeholder='Product brand'
-            />
-          </div>
+          <TextareaInput
+            containerClassName={'sm:col-span-2'}
+            isRequired={true}
+            label={'Category Description'}
+            name={'description'}
+            register={register}
+            errors={errors}
+            errorMessage={'Category Description is required'}
+          />
 
           <div className='md:col-span-2'>
             <SubmitButton isSubmitting={isSubmitting} label={'Save Category'} />
