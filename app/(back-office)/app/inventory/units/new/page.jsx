@@ -23,7 +23,7 @@ const NewUnitPage = () => {
   return (
     <div>
       {/* Header */}
-      <FormHeader title={'New Category'} url={'/app/inventory/items'} />
+      <FormHeader title={'New Unit'} url={'/app/inventory/items'} />
 
       {/* Form */}
       <form
