@@ -3,11 +3,11 @@ export const POST = async (request) => {
   try {
     const { title, description } = await request.json();
 
-    const brand = { title, description };
+    const data = { title, description };
 
-    console.log(brand);
+    console.log(data);
 
-    return NextResponse.json({ brand, message: 'Success' }, { status: 201 });
+    return NextResponse.json({ data, message: 'Success' }, { status: 201 });
   } catch (error) {
     console.log(error);
     return NextResponse.json(

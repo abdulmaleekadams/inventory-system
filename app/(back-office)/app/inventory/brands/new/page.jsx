@@ -45,7 +45,7 @@ const NewBrandPage = () => {
           <TextareaInput
             containerClassName={'sm:col-span-2'}
             isRequired={true}
-            label={'Brands Description'}
+            label={'Brand Description'}
             name={'description'}
             register={register}
             errors={errors}

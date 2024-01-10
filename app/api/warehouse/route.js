@@ -11,7 +11,7 @@ export const POST = async (request) => {
   } catch (error) {
     console.log(error);
     return NextResponse.json(
-      { error, message: 'Failed to create the unit' },
+      { error, message: 'Failed to create the warehouse' },
       { status: 500 }
     );
   }
