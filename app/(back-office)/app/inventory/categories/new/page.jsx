@@ -17,10 +17,20 @@ const NewCategoryPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data) => {
+    const baseURL = 'http://localhost:3000/api';
     try {
       setIsSubmitting(true);
-      console.log(data);
-      reset();
+      const response = await fetch(`${baseURL}/categories`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        const dataFromResponse = await response.json()
+        console.log(dataFromResponse);
+        setIsSubmitting(false);
+        reset();
+      }
     } catch (error) {
       setIsSubmitting(false);
       console.log(error);
@@ -28,6 +38,7 @@ const NewCategoryPage = () => {
       setIsSubmitting(false);
     }
   };
+
   return (
     <div>
       {/* Header */}
@@ -43,7 +54,7 @@ const NewCategoryPage = () => {
           <TextInput
             register={register}
             label={'Category Title'}
-            name={'category'}
+            name={'title'}
             errors={errors}
             containerClassName='sm:col-span-2'
             errorMessage={'Category Title is required'}
