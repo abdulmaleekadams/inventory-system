@@ -62,7 +62,7 @@ const NewWarehousePage = () => {
             register={register}
             errors={errors}
             errorMessage={'Warehouse Type should be selected'}
-            title={'Warehouse Type'}
+            title={'Warehouse Tmype'}
             containerClassName={'sm:col-span-1'}
           />
           <TextareaInput
