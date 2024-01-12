@@ -13,7 +13,7 @@ const SubmitButton = ({label, isSubmitting}) => {
       ) : (
         <>
           <Plus className='w-5 h-5 mr-2' />
-          <span className='capitalize'>{label}</span>
+          <span className='capitalize'>{`Save ${label}`}</span>
         </>
       )}
     </button>

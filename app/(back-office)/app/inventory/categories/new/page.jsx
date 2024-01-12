@@ -53,7 +53,7 @@ const NewCategoryPage = () => {
           />
 
           <div className='md:col-span-2'>
-            <SubmitButton isSubmitting={isSubmitting} label={'Save Category'} />
+            <SubmitButton isSubmitting={isSubmitting} label={'Category'} />
           </div>
         </div>
       </form>

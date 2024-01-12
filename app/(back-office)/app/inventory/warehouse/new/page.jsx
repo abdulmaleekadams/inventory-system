@@ -78,7 +78,7 @@ const NewWarehousePage = () => {
           <div className='md:col-span-2'>
             <SubmitButton
               isSubmitting={isSubmitting}
-              label={'Save Warehouse'}
+              label={'Warehouse'}
             />
           </div>
         </div>

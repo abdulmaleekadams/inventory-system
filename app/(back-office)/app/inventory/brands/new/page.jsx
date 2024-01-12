@@ -53,7 +53,7 @@ const NewBrandPage = () => {
           />
 
           <div className='md:col-span-2'>
-            <SubmitButton isSubmitting={isSubmitting} label={'Save Brand'} />
+            <SubmitButton isSubmitting={isSubmitting} label={'Brand'} />
           </div>
         </div>
       </form>
