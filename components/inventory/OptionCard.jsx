@@ -4,7 +4,7 @@ import { Shirt } from 'lucide-react';
 const OptionCard = ({ optionData }) => {
   const { title, description, link, linkText, enabled, Icon } = optionData;
   return (
-    <div className='shadow-md bg-white flex flex-col items-center justify-center gap-4 p-6'>
+    <div className='shadow-md bg-white flex flex-col items-center justify-center gap-4 p-6 rounded-md'>
       {/* Title */}
       <h3 className='font-bold text-font-semibold'>{title}</h3>
       {/* Image */}

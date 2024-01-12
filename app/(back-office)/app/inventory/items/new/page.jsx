@@ -20,7 +20,7 @@ const NewItemPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data) => {
-    await addNewData('warehouse', setIsSubmitting, reset, data);
+    await addNewData('items', setIsSubmitting, reset, data);
   };
 
   return (
@@ -67,6 +67,29 @@ const NewItemPage = () => {
             ]}
             defaultText={'Select Item category'}
           />
+          <SelectInput
+            containerClassName={'w-full'}
+            name={'supplierId'}
+            label={'Item Supplier'}
+            errors={errors}
+            register={register}
+            errorMessage={'Item Supplier should be selected'}
+            options={[
+              {
+                value: 'electronics',
+                title: 'Fuhudam',
+              },
+              {
+                value: 'groceries',
+                title: 'Farabale',
+              },
+              {
+                value: 'furniture',
+                title: 'Tajmal',
+              },
+            ]}
+            defaultText={'Select Item supplier'}
+          />
           <TextInput
             register={register}
             label={'Item SKU'}
@@ -96,16 +119,6 @@ const NewItemPage = () => {
             placeholder={'Type the Item Quantity'}
             isRequired={true}
             type={'number'}
-          />
-          <TextInput
-            register={register}
-            label={'Item Barcode'}
-            name={'barcode'}
-            errors={errors}
-            containerClassName='sm:col-span-1'
-            errorMessage={'Item Barcode is required'}
-            placeholder={'Type the Item Barcode'}
-            isRequired={false}
           />
           <SelectInput
             containerClassName={'w-full'}
@@ -213,7 +226,7 @@ const NewItemPage = () => {
 
           <TextInput
             register={register}
-            label={'Item Dimensions in cm'}
+            label={'Item Dimensions in cm (L x W x H)'}
             name={'dimensions'}
             errors={errors}
             containerClassName='sm:col-span-1'
@@ -242,24 +255,8 @@ const NewItemPage = () => {
             errorMessage={'Item Notes is required'}
           />
 
-          <RadioInput
-            name={'type'}
-            options={[
-              { label: 'Main', value: 'main' },
-              { label: 'Branch', value: 'branch' },
-            ]}
-            register={register}
-            errors={errors}
-            errorMessage={'Warehouse Type should be selected'}
-            title={'Warehouse Tmype'}
-            containerClassName={'sm:col-span-1'}
-          />
-
           <div className='md:col-span-2'>
-            <SubmitButton
-              isSubmitting={isSubmitting}
-              label={'Item'}
-            />
+            <SubmitButton isSubmitting={isSubmitting} label={'Item'} />
           </div>
         </div>
       </form>
