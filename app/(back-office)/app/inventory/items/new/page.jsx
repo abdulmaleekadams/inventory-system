@@ -279,9 +279,9 @@ const NewItemPage = () => {
               <Image
                 alt='Item image'
                 src={imageUploadedUrl}
-                width={1000}
-                height={667}
-                className='w-full h-64 object-cover'
+                width={300}
+                height={300}
+                className='object-cover'
               />
             ) : (
               <ImageUploader setImageUploadedUrl={setImageUploadedUrl} />
