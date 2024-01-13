@@ -7,7 +7,6 @@ import SubmitButton from '@/components/inventory/FormInputs/SubmitButton';
 import TextareaInput from '@/components/inventory/FormInputs/TextareaInput';
 import { addNewData } from '@/app/lib/addNewData';
 import SelectInput from '@/components/inventory/FormInputs/SelectInput';
-import ImageUploader from '@/components/inventory/ImageUploader';
 
 const NewIAdjustments = () => {
   const {
@@ -18,21 +17,18 @@ const NewIAdjustments = () => {
   } = useForm();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [imageUploadedUrl, setImageUploadedUrl] = useState('');
 
   const onSubmit = async (data) => {
-    data.imageUrl = imageUploadedUrl;
-    await addNewData('items', setIsSubmitting, reset, data);
+    await addNewData('adjustment', setIsSubmitting, reset, data);
   };
 
   return (
     <div>
       {/* Header */}
-      <FormHeader title={'Stock Transfer'} url={'/app/inventory/items'} />
+      <FormHeader title={'New Adjustment'} url={'/app/inventory/items'} />
 
       {/* Form */}
       <form
-        action='#'
         className='w-full max-w-4xl mx-auto my-5 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 px-16 py-6'
         onSubmit={handleSubmit(onSubmit)}
       >
