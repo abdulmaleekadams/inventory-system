@@ -8,8 +8,6 @@ import TextareaInput from '@/components/inventory/FormInputs/TextareaInput';
 import { addNewData } from '@/app/lib/addNewData';
 import SelectInput from '@/components/inventory/FormInputs/SelectInput';
 import ImageUploader from '@/components/inventory/ImageUploader';
-import { Pencil } from 'lucide-react'
-import Image from 'next/image'
 
 const NewItemPage = () => {
   const {
@@ -263,30 +261,12 @@ const NewItemPage = () => {
             <ImageUploader setImageUploadedUrl={setImageUploadedUrl} />
           </div> */}
 
-          <div className='col-span-full'>
-            <div className='flex justify-between items-center mb-4'>
-              <label htmlFor='imageUrl' className='block text-sm'>
-                Item Image
-              </label>
-              {imageUploadedUrl && (
-                <button className='flex space-x-2 bg-slate-900'>
-                  <Pencil className='w-5 h-5' />
-                  <span>Change Image</span>
-                </button>
-              )}
-            </div>
-            {imageUploadedUrl ? (
-              <Image
-                alt='Item image'
-                src={imageUploadedUrl}
-                width={300}
-                height={300}
-                className='object-cover'
-              />
-            ) : (
-              <ImageUploader setImageUploadedUrl={setImageUploadedUrl} />
-            )}
-          </div>
+          <ImageUploader
+            label={'Item Image'}
+            imageUploadedUrl={imageUploadedUrl}
+            setImageUploadedUrl={setImageUploadedUrl}
+            endpoint='imageUploader'
+          />
 
           <div className='md:col-span-2'>
             <SubmitButton isSubmitting={isSubmitting} label={'Item'} />
