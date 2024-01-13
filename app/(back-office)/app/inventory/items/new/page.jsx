@@ -6,8 +6,10 @@ import { useState } from 'react';
 import SubmitButton from '@/components/inventory/FormInputs/SubmitButton';
 import TextareaInput from '@/components/inventory/FormInputs/TextareaInput';
 import { addNewData } from '@/app/lib/addNewData';
-import RadioInput from '@/components/inventory/FormInputs/RadioInput';
 import SelectInput from '@/components/inventory/FormInputs/SelectInput';
+import ImageUploader from '@/components/inventory/ImageUploader';
+import { Pencil } from 'lucide-react'
+import Image from 'next/image'
 
 const NewItemPage = () => {
   const {
@@ -18,8 +20,10 @@ const NewItemPage = () => {
   } = useForm();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [imageUploadedUrl, setImageUploadedUrl] = useState('');
 
   const onSubmit = async (data) => {
+    data.imageUrl = imageUploadedUrl;
     await addNewData('items', setIsSubmitting, reset, data);
   };
 
@@ -254,6 +258,35 @@ const NewItemPage = () => {
             errors={errors}
             errorMessage={'Item Notes is required'}
           />
+
+          {/* <div className='sm:col-span-2'>
+            <ImageUploader setImageUploadedUrl={setImageUploadedUrl} />
+          </div> */}
+
+          <div className='col-span-full'>
+            <div className='flex justify-between items-center mb-4'>
+              <label htmlFor='imageUrl' className='block text-sm'>
+                Item Image
+              </label>
+              {imageUploadedUrl && (
+                <button className='flex space-x-2 bg-slate-900'>
+                  <Pencil className='w-5 h-5' />
+                  <span>Change Image</span>
+                </button>
+              )}
+            </div>
+            {imageUploadedUrl ? (
+              <Image
+                alt='Item image'
+                src={imageUploadedUrl}
+                width={1000}
+                height={667}
+                className='w-full h-64 object-cover'
+              />
+            ) : (
+              <ImageUploader setImageUploadedUrl={setImageUploadedUrl} />
+            )}
+          </div>
 
           <div className='md:col-span-2'>
             <SubmitButton isSubmitting={isSubmitting} label={'Item'} />

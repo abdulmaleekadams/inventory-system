@@ -18,6 +18,7 @@ export const POST = async (request) => {
       dimensions,
       taxRate,
       notes,
+      imageUrl
     } = await request.json();
 
     const data = {
@@ -37,6 +38,7 @@ export const POST = async (request) => {
       dimensions,
       taxRate,
       notes,
+      imageUrl
     };
 
     console.log(data);
