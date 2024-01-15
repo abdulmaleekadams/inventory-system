@@ -23,7 +23,7 @@ const NewCategoryPage = () => {
       setIsSubmitting,
       reset,
       data,
-      'Category Successfully Created'
+      'New Category Successfully Created'
     );
   };
 

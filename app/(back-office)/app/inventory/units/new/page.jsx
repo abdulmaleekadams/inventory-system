@@ -17,7 +17,13 @@ const NewUnitPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data) => {
-    await addNewData('units', setIsSubmitting, reset, data);
+    await addNewData(
+      'units',
+      setIsSubmitting,
+      reset,
+      data,
+      'New Unit Successfully Created'
+    );
   };
 
   return (

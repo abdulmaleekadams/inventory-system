@@ -37,7 +37,7 @@ model Warehouse {
   name String @unique
   location String?
   description String?
-  type WarehousType @default(BRANCH)
+  type WarehousType @default(main)
 }
 
 // inventory transfer (adjustment)
@@ -45,8 +45,8 @@ model Warehouse {
 
 
 enum WarehousType {
-  MAIN
-  BRANCH
+  main
+  branch
 }
 
 

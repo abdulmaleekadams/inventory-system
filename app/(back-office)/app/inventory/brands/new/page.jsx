@@ -18,7 +18,13 @@ const NewBrandPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data) => {
-    await addNewData('brands', setIsSubmitting, reset, data);
+    await addNewData(
+      'brands',
+      setIsSubmitting,
+      reset,
+      data,
+      'New Brand Successfully Created'
+    );
   };
 
   return (
@@ -44,7 +50,7 @@ const NewBrandPage = () => {
           />
           <TextareaInput
             containerClassName={'sm:col-span-2'}
-            isRequired={true}
+            isRequired={false}
             label={'Brand Description'}
             name={'description'}
             register={register}

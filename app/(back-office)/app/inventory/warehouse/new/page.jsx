@@ -19,7 +19,13 @@ const NewWarehousePage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data) => {
-    await addNewData('warehouse', setIsSubmitting, reset, data);
+    await addNewData(
+      'warehouse',
+      setIsSubmitting,
+      reset,
+      data,
+      'New Warehouse Successfully Created'
+    );
   };
 
   return (
@@ -67,7 +73,7 @@ const NewWarehousePage = () => {
           />
           <TextareaInput
             containerClassName={'sm:col-span-2'}
-            isRequired={true}
+            isRequired={false}
             label={'Warehouse Description'}
             name={'description'}
             register={register}

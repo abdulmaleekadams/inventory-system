@@ -1,9 +1,15 @@
+import db from '@/app/lib/db';
 import { NextResponse } from 'next/server';
 export const POST = async (request) => {
   try {
     const { title, description } = await request.json();
 
-    const data = { title, description };
+    const data = await db.brand.create({
+      data: {
+        title,
+        description,
+      },
+    });
 
     console.log(data);
 
