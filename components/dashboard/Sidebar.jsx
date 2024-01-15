@@ -47,7 +47,7 @@ const navLinks = [
       },
       {
         title: 'Inventory Adjustments',
-        url: 'adjustments',
+        url: 'adjustments/new',
       },
     ],
   },
