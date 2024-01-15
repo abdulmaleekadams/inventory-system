@@ -3,7 +3,6 @@ const TextInput = ({
   label,
   type = 'text',
   isRequired = true,
-  title,
   containerClassName = 'w-full',
   register,
   errors,

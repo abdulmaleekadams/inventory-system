@@ -18,7 +18,13 @@ const NewCategoryPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data) => {
-    await addNewData('categories', setIsSubmitting, reset, data);
+    await addNewData(
+      'categories',
+      setIsSubmitting,
+      reset,
+      data,
+      'Category Successfully Created'
+    );
   };
 
   return (

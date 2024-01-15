@@ -1,6 +1,6 @@
+import toast from 'react-hot-toast';
 const baseURL = 'http://localhost:3000/api';
-export const addNewData = async (apiPath, setIsSubmitting, reset, data) => {
-  console.log(data);
+export const addNewData = async (apiPath, setIsSubmitting, reset, data, successMessage) => {
   try {
     setIsSubmitting(true);
     const response = await fetch(`${baseURL}/${apiPath}`, {
@@ -12,7 +12,11 @@ export const addNewData = async (apiPath, setIsSubmitting, reset, data) => {
       const dataFromResponse = await response.json();
       console.log(dataFromResponse);
       setIsSubmitting(false);
+      toast.success(successMessage);
       reset();
+    } else {
+      const error = await response.json();
+      console.log(error);
     }
   } catch (error) {
     setIsSubmitting(false);

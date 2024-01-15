@@ -36,15 +36,13 @@ const SidebarDropdown = ({ icon, title, dropdownList, menuTitle }) => {
             : '-translate-y-14 h-0 opacity-0 invisible'
         }`}
       >
-        {dropdownList?.map((item) => (
+        {dropdownList?.map((item, idx) => (
           <Link
             href={`/app/${menuTitle}/${item.url}`}
             className={`flex gap-2 items-center p-2 pl-8 py-3 rounded-lg text-sm group ${
-              path.includes(item.url)
-                ? 'bg-blue-500 *:!opacity-100'
-                : ''
+              path.includes(item.url) ? 'bg-blue-500 *:!opacity-100' : ''
             }`}
-            key={`dropdown-${item.url}`}
+            key={`dropdown-${idx + '-' + item.url}`}
           >
             <Plus className='order-2 ml-auto w-4 h-4 bg-white p-1 rounded-full text-blue-500 opacity-0 group-hover:opacity-100 hover:text-slate-900' />
 

@@ -13,21 +13,21 @@ datasource db {
 // Category Schema //
 model Category {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  title String
+  title String @unique
   description String?
 }
 
 // Brand Schema //
 model Brand {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  title String
+  title String @unique
   description String?
 }
 
 // Unit Schema //
 model Unit {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  title String
+  title String @unique
   abbreviation String
 }
 
