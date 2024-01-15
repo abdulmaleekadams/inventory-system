@@ -31,6 +31,22 @@ model Unit {
   abbreviation String
 }
 
+// warehouse 
+model Warehouse {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String @unique
+  location String?
+  description String?
+  type WarehousType @default(BRANCH)
+}
 
+// inventory transfer (adjustment)
+
+
+
+enum WarehousType {
+  MAIN
+  BRANCH
+}
 
 
