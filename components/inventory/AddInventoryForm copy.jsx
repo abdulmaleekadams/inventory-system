@@ -7,7 +7,7 @@ import TextareaInput from '@/components/inventory/FormInputs/TextareaInput';
 import { addNewData } from '@/app/lib/addNewData';
 import SelectInput from '@/components/inventory/FormInputs/SelectInput';
 
-const TransferInventoryForm = () => {
+const AddInventoryForm = () => {
   const {
     register,
     reset,
@@ -18,7 +18,7 @@ const TransferInventoryForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data) => {
-    await addNewData('adjustment/transfer', setIsSubmitting, reset, data);
+    await addNewData('adjustment/add', setIsSubmitting, reset, data);
   };
 
   return (
@@ -29,17 +29,18 @@ const TransferInventoryForm = () => {
       <div className='grid gap-4 sm:grid-cols-2 sm:gap-6'>
         <TextInput
           register={register}
-          label={'Quantity of Stock to Transfer'}
-          name={'transferStockQty'}
+          label={'Quantity of Stock to Add'}
+          name={'addStockQty'}
           errors={errors}
           containerClassName='w-full'
-          errorMessage={'Item Stock to be transferred is required'}
-          placeholder={'Type the Amount of Stock to Transfer'}
+          errorMessage={'Item Stock to be added is required'}
+          placeholder={'Type the Quantity of Stock to Add'}
+          type='number'
         />
         <SelectInput
           containerClassName={'w-full'}
           name={'itemId'}
-          label={'Item to Transfer'}
+          label={'Item to Add'}
           errors={errors}
           register={register}
           errorMessage={'Item to be transferred should be selected'}
@@ -57,31 +58,9 @@ const TransferInventoryForm = () => {
               title: 'Furniture',
             },
           ]}
-          defaultText={'Select Item to transfer'}
+          defaultText={'Select Item to add'}
         />
-        <SelectInput
-          containerClassName={'w-full'}
-          name={'dispatchWarehouseId'}
-          label={'Dispatch Warehouse'}
-          errors={errors}
-          register={register}
-          errorMessage={'Item Category should be selected'}
-          options={[
-            {
-              value: 'electronics',
-              title: 'Warehouse A',
-            },
-            {
-              value: 'groceries',
-              title: 'Warehouse B',
-            },
-            {
-              value: 'furniture',
-              title: 'Warehouse C',
-            },
-          ]}
-          defaultText={'Select Warhouse to transfer from'}
-        />
+
         <SelectInput
           containerClassName={'w-full'}
           name={'receivingWarehouseId'}
@@ -91,15 +70,15 @@ const TransferInventoryForm = () => {
           errorMessage={'Item Category should be selected'}
           options={[
             {
-              value: 'electronics',
+              value: 'warehouse_a',
               title: 'Warehouse A',
             },
             {
-              value: 'groceries',
+              value: 'warehouse_b',
               title: 'Warehouse B',
             },
             {
-              value: 'furniture',
+              value: 'warehouse_c',
               title: 'Warehouse C',
             },
           ]}
@@ -124,4 +103,4 @@ const TransferInventoryForm = () => {
   );
 };
 
-export default TransferInventoryForm;
+export default AddInventoryForm;
