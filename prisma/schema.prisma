@@ -12,41 +12,95 @@ datasource db {
 
 // Category Schema //
 model Category {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  title String @unique
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String  @unique
   description String?
+  Item        Item[]
 }
 
 // Brand Schema //
 model Brand {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  title String @unique
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String  @unique
   description String?
+  Item        Item[]
 }
 
 // Unit Schema //
 model Unit {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  title String @unique
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  title        String @unique
   abbreviation String
+  Item         Item[]
 }
 
 // warehouse 
 model Warehouse {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  name String @unique
-  location String?
+  id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  name        String       @unique
+  location    String?
   description String?
-  type WarehousType @default(main)
+  type        WarehousType @default(main)
+  Item        Item[]
+  AddStock    AddStock[]
+  TransferStockAdjustment TransferStockAdjustment[]
 }
 
-// inventory transfer (adjustment)
+// item
 
+model Item {
+  id              String     @id @default(auto()) @map("_id") @db.ObjectId
+  name            String     @unique
+  notes           String?
+  category        Category   @relation(fields: [categoryId], references: [id])
+  categoryId      String     @db.ObjectId
+  sku             String     @unique
+  barcode         String?
+  quantity        Int
+  unit            Unit       @relation(fields: [unitId], references: [id])
+  unitId          String     @db.ObjectId
+  brand           Brand      @relation(fields: [brandId], references: [id])
+  brandId         String     @db.ObjectId
+  sellingPrice    Float
+  costPrice       Float
+  reorderPoint    Int
+  supplier        String
+  warehouse       Warehouse  @relation(fields: [itemWarehouseId], references: [id])
+  itemWarehouseId String     @db.ObjectId
+  tax             Float
+  weight          Float
+  dimension       String
+  imageUrl        String
+  AddStock        AddStock[]
+  TransferStockAdjustment TransferStockAdjustment[]
+}
 
+// inventory add adjustment
+model AddStock {
+  id                   String    @id @default(auto()) @map("_id") @db.ObjectId
+  referenceNumber      String    @unique
+  addStockQty          Float
+  warehouse            Warehouse @relation(fields: [receivingWarehouseId], references: [id])
+  receivingWarehouseId String    @db.ObjectId
+  item                 Item      @relation(fields: [itemId], references: [id])
+  itemId               String    @db.ObjectId
+  notes                String?
+}
+
+// inventory add adjustment
+model TransferStockAdjustment {
+  id                   String    @id @default(auto()) @map("_id") @db.ObjectId
+  referenceNumber      String    @unique
+  transferStockQty     Float
+  warehouse            Warehouse @relation(fields: [dispatchWarehouseId], references: [id])
+  dispatchWarehouseId   String    @db.ObjectId
+  receivingWarehouseId   String    @db.ObjectId
+  item                 Item      @relation(fields: [itemId], references: [id])
+  itemId               String    @db.ObjectId
+  notes                String?
+}
 
 enum WarehousType {
   main
   branch
 }
-
-

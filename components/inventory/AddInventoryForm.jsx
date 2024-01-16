@@ -29,6 +29,15 @@ const AddInventoryForm = () => {
       <div className='grid gap-4 sm:grid-cols-2 sm:gap-6'>
         <TextInput
           register={register}
+          label={'Reference Number'}
+          name={'referenceNumber'}
+          errors={errors}
+          containerClassName='w-full'
+          errorMessage={'Reference number is required'}
+          type='number'
+        />
+        <TextInput
+          register={register}
           label={'Quantity of Stock to Add'}
           name={'addStockQty'}
           errors={errors}
