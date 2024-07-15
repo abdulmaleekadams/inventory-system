@@ -156,7 +156,7 @@ const Sidebar = () => {
       <SubscriptionCard />
 
       {/* Bottom */}
-      <button className='flex gap-2 items-center justify-center py-4 px-2 space-x-2 bg-slate-950'>
+      <button type='button' aria-label='Collapse Sidebar' className='flex gap-2 items-center justify-center py-4 px-2 space-x-2 bg-slate-950'>
         <ChevronLeft />
       </button>
 

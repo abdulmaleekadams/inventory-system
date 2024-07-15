@@ -2,13 +2,17 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const NavLink = ({ icon, title, url }) => {
+const NavLink = ({ icon, title, url }: {
+  icon: JSX.Element
+  title: string
+  url: string
+}) => {
   const path = usePathname();
   return (
     <Link
       href={`/app/${url}`}
       className={`flex gap-2 items-center hover:bg-blue-500 p-2 rounded-lg ${
-        path.includes(url.split('/').pop()) ? 'bg-blue-500' : ''
+        path === url ? 'bg-blue-500' : ''
       }`}
     >
       {icon}

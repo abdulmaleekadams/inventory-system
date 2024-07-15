@@ -36,7 +36,7 @@ const Banner = () => {
       </div>
 
       {/* Close Button */}
-      <button className='absolute top-6 right-4' onClick={handleHideBanner}>
+      <button className='absolute top-6 right-4' onClick={handleHideBanner} type='button' aria-label='Close Banner'>
         <X className='text-slate-400 hover:text-slate-900' />
       </button>
     </div>
